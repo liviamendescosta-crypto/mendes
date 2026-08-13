@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Do Lixo ao Luxo - Reciclagem Criativa</title>
+    <style>
+        /* Fundo com bom contraste visual */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px 10px;
+            background-color: #f4f4f9; /* Fundo suave de alto contraste com os cards */
+            color: #222222;
+        }
+
+        /* Cabeçalho principal acessível */
+        header {
+            background-color: #3b0764; /* Roxo escuro de altíssimo contraste */
+            color: #ffffff;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            border: 4px solid #facc15; /* Amarelo vibrante de alto contraste */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #ffffff;
+        }
+
+        header h1 {
+            margin: 10px 0;
+            font-size: 2.5em;
+            color: #facc15;
+        }
+
+        header p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Área principal de postagens */
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Estrutura de cada Post */
+        .post {
+            background-color: #ffffff;
+            color: #222222;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #d1d5db; /* Borda bem visível para separar os blocos */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .post h2 {
+            color: #3b0764;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        .autor {
+            color: #6b21a8;
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .post img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .post p {
+            line-height: 1.7;
+            font-size: 1.1em;
+            color: #222222; /* Texto escuro para facilitar a leitura */
+        }
+
+        /* Botão Acessível */
+        .btn-curtir {
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            background-color: #c2185b; /* Rosa escuro para garantir contraste no texto branco */
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-curtir:hover {
+            background-color: #880e4f;
+        }
+
+        /* Indicador visual de foco para navegação por teclado (Acessibilidade) */
+        .btn-curtir:focus {
+            outline: 4px solid #facc15;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>  
+
+    <header role="banner">
+        <img src="Gemini_Generated_Image_l4rcpjl4rcpjl4rc.png" 
+             alt="Ilustração colorida de garrafas de plástico sendo transformadas em vasos de plantas com flores e caixas de papelão virando organizadores de mesa decorados.">
+        
+        <h1>Do Lixo ao Luxo</h1>
+        <p>Projeto do 1º Ano do Ensino Médio: Transformando o descarte em arte, utilidade e decoração!</p>
+    </header>
+
+    <main role="main">
+
+        <article class="post">
+            <h2>Meus Primeiros Passos na Reciclagem Criativa</h2>
+            <div class="autor">Por: Livia Mendes</div>
+            <p>Oi pessoal! Bem-vindos ao meu site escolar! Neste primeiro post vou contar como tudo começou. Eu sempre olhava para garrafas plásticas e caixas de papelão vazias e pensava: <em>"Será que eu não posso fazer nada útil com isso?"</em>.</p>
+            <p>A resposta é: <strong>SIM!</strong> E você ficaria surpreso com o resultado. Neste blog, vou compartilhar projetos simples, divertidos e super úteis que você pode fazer na sua casa. Vamos juntos transformar o lixo em luxo!</p>
+            
+            <button class="btn-curtir" aria-label="Curtir a postagem Meus Primeiros Passos">
+                ❤️ Curtir (<span>0</span>)
+            </button>
+        </article>
+
+        <article class="post">
+            <h2>Luminária Aconchegante com Garrafa de Vidro</h2>
+            <div class="autor">Por: Livia Mendes</div>
+            
+            <img src="luminaria-garrafa.jpg" 
+                 alt="Fotografia de uma garrafa de vidro transparente usada, higienizada, contendo um fio de pequenas luzes amareladas acesas em seu interior, posicionada sobre uma mesa de madeira.">
+
+            <p>Sabe aquela garrafa de azeite ou de suco de vidro que iria para a coleta seletiva? Ela pode virar uma luminária moderna para a sua sala ou quarto!</p>
+            <p>Basta higienizar bem o vidro, retirar o rótulo e inserir um fio de luzes LED (como o pisca-pisca de Natal). O resultado é uma peça de iluminação elegante, custo quase zero e sustentável.</p>
+
+            <button class="btn-curtir" aria-label="Curtir a postagem Luminária Aconchegante">
+                ❤️ Curtir (<span>0</span>)
+            </button>
+        </article>
+
+        <article class="post">
+            <h2>Organizador de Escrivaninha de Papelão</h2>
+            <div class="autor">Por: Livia Mendes</div>
+
+            <img src="organizador-papelao.jpg" 
+                 alt="Caixa de papelão encapada com tecido azul e divisórias internas de rolos de papel higiênico guardando canetas, tesouras e réguas em uma mesa de estudos.">
+
+            <p>Para manter o cantinho dos estudos organizado sem gastar dinheiro, usei uma caixa de sapato e rolos de papel higiênico. Encapei a caixa com retalhos de tecido antigo e cortei os rolos na altura certa para fazer divisórias de canetas e lápis.</p>
+            <p>Além de ajudar no estudo do dia a dia, evitou o descarte desnecessário de papelão na minha casa!</p>
+
+            <button class="btn-curtir" aria-label="Curtir a postagem Organizador de Escrivaninha">
+                ❤️ Curtir (<span>0</span>)
+            </button>
+        </article>
+
+    </main>
+
+    <script>
+        const botoes = document.querySelectorAll(".btn-curtir");
+
+        botoes.forEach(botao => {
+            botao.addEventListener("click", function() {
+                const contadorSpan = esteBotao.querySelector("span");
+                let curtidas = parseInt(contadorSpan.textContent);
+                curtidas += 1;
+                contadorSpan.textContent = curtidas;
+            });
+        });
+    </script>
+</body>
+</html>
