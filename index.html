@@ -5,34 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Do Lixo ao Luxo - Reciclagem Criativa</title>
     <style>
-        /* Fundo com bom contraste visual */
+        /* Variáveis de cores para os temas */
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #2a0845;
+            --card-bg: #1e1e1e;
+            --card-border: #333333;
+            --title-color: #c084fc;
+            --author-color: #a855f7;
+            --btn-bg: #e11d48;
+            --btn-hover: #be123c;
+        }
+
+        /* Estilos quando o tema claro estiver ativo */
+        body.tema-claro {
+            --bg-color: #f4f4f9;
+            --text-color: #222222;
+            --header-bg: #3b0764;
+            --card-bg: #ffffff;
+            --card-border: #d1d5db;
+            --title-color: #3b0764;
+            --author-color: #6b21a8;
+            --btn-bg: #c2185b;
+            --btn-hover: #880e4f;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 20px 10px;
-            background-color: #f4f4f9; /* Fundo suave de alto contraste com os cards */
-            color: #222222;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Cabeçalho principal acessível */
+        /* Botão para alternar tema */
+        .btn-tema {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 18px;
+            border: 2px solid #facc15;
+            border-radius: 20px;
+            background-color: var(--header-bg);
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .btn-tema:hover {
+            transform: scale(1.05);
+        }
+
+        /* Cabeçalho */
         header {
-            background-color: #3b0764; /* Roxo escuro de altíssimo contraste */
+            background-color: var(--header-bg);
             color: #ffffff;
             text-align: center;
             max-width: 850px;
-            margin: 0 auto 30px auto;
-            padding: 25px;
+            margin: 0 auto 20px auto;
+            padding: 20px;
             border-radius: 12px;
-            border: 4px solid #facc15; /* Amarelo vibrante de alto contraste */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 4px solid #facc15;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
+        /* Ajuste de Imagem no Cabeçalho sem recorte */
         header img {
             width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            margin-bottom: 10px;
             border: 2px solid #ffffff;
         }
 
@@ -48,52 +96,51 @@
             margin: 0;
         }
 
-        /* Área principal de postagens */
         main {
-            max-width: 850px;
+            max-width: 830px;
             margin: 0 auto;
         }
 
-        /* Estrutura de cada Post */
+        /* Posts */
         .post {
-            background-color: #ffffff;
-            color: #222222;
+            background-color: var(--card-bg);
+            color: var(--text-color);
             padding: 25px;
             border-radius: 12px;
-            border: 2px solid #d1d5db; /* Borda bem visível para separar os blocos */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border: 2px solid var(--card-border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             margin-bottom: 30px;
         }
 
         .post h2 {
-            color: #3b0764;
+            color: var(--title-color);
             margin-top: 0;
             font-size: 1.8em;
         }
 
         .autor {
-            color: #6b21a8;
+            color: var(--author-color);
             font-weight: bold;
             font-size: 1em;
             margin-bottom: 15px;
         }
 
+        /* Imagens Inteiras sem Recorte */
         .post img {
             width: 100%;
-            max-height: 350px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             border-radius: 8px;
             margin: 15px 0;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--card-border);
         }
 
         .post p {
             line-height: 1.7;
             font-size: 1.1em;
-            color: #222222; /* Texto escuro para facilitar a leitura */
         }
 
-        /* Botão Acessível */
+        /* Botão de Curtir */
         .btn-curtir {
             cursor: pointer;
             display: inline-block;
@@ -101,26 +148,29 @@
             padding: 12px 24px;
             border: none;
             border-radius: 25px;
-            background-color: #c2185b; /* Rosa escuro para garantir contraste no texto branco */
+            background-color: var(--btn-bg);
             color: #ffffff;
             font-size: 1.1em;
             font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.2s;
         }
 
         .btn-curtir:hover {
-            background-color: #880e4f;
+            background-color: var(--btn-hover);
         }
 
-        /* Indicador visual de foco para navegação por teclado (Acessibilidade) */
-        .btn-curtir:focus {
+        .btn-curtir:focus, .btn-tema:focus {
             outline: 4px solid #facc15;
-            outline-offset: 2px;
+            outline-offset: 4px;
         }
     </style>
 </head>
 <body>  
+
+    <button id="btn-alternar-tema" class="btn-tema" aria-label="Alternar tema">
+        ☀️ Modo Claro
+    </button>
 
     <header role="banner">
         <img src="Gemini_Generated_Image_l4rcpjl4rcpjl4rc.png" 
@@ -139,7 +189,7 @@
             <p>A resposta é: <strong>SIM!</strong> E você ficaria surpreso com o resultado. Neste blog, vou compartilhar projetos simples, divertidos e super úteis que você pode fazer na sua casa. Vamos juntos transformar o lixo em luxo!</p>
             
             <button class="btn-curtir" aria-label="Curtir a postagem Meus Primeiros Passos">
-                ❤️ Curtir (<span>0</span>)
+                ❤️ Curtir (<span>55</span>)
             </button>
         </article>
 
@@ -147,14 +197,14 @@
             <h2>Luminária Aconchegante com Garrafa de Vidro</h2>
             <div class="autor">Por: Livia Mendes</div>
             
-            <img src="luminaria-garrafa.jpg" 
+            <img src="luminariadegarrafa.png" 
                  alt="Fotografia de uma garrafa de vidro transparente usada, higienizada, contendo um fio de pequenas luzes amareladas acesas em seu interior, posicionada sobre uma mesa de madeira.">
 
             <p>Sabe aquela garrafa de azeite ou de suco de vidro que iria para a coleta seletiva? Ela pode virar uma luminária moderna para a sua sala ou quarto!</p>
             <p>Basta higienizar bem o vidro, retirar o rótulo e inserir um fio de luzes LED (como o pisca-pisca de Natal). O resultado é uma peça de iluminação elegante, custo quase zero e sustentável.</p>
 
             <button class="btn-curtir" aria-label="Curtir a postagem Luminária Aconchegante">
-                ❤️ Curtir (<span>0</span>)
+                ❤️ Curtir (<span>60</span>)
             </button>
         </article>
 
@@ -162,29 +212,43 @@
             <h2>Organizador de Escrivaninha de Papelão</h2>
             <div class="autor">Por: Livia Mendes</div>
 
-            <img src="organizador-papelao.jpg" 
+            <img src="organizador-escrivaninha.png" 
                  alt="Caixa de papelão encapada com tecido azul e divisórias internas de rolos de papel higiênico guardando canetas, tesouras e réguas em uma mesa de estudos.">
 
             <p>Para manter o cantinho dos estudos organizado sem gastar dinheiro, usei uma caixa de sapato e rolos de papel higiênico. Encapei a caixa com retalhos de tecido antigo e cortei os rolos na altura certa para fazer divisórias de canetas e lápis.</p>
             <p>Além de ajudar no estudo do dia a dia, evitou o descarte desnecessário de papelão na minha casa!</p>
 
             <button class="btn-curtir" aria-label="Curtir a postagem Organizador de Escrivaninha">
-                ❤️ Curtir (<span>0</span>)
+                ❤️ Curtir (<span>49</span>)
             </button>
         </article>
 
     </main>
 
     <script>
-        const botoes = document.querySelectorAll(".btn-curtir");
+        // Lógica de Curtidas
+        const botoesCurtir = document.querySelectorAll(".btn-curtir");
 
-        botoes.forEach(botao => {
+        botoesCurtir.forEach(botao => {
             botao.addEventListener("click", function() {
-                const contadorSpan = esteBotao.querySelector("span");
+                const contadorSpan = botao.querySelector("span");
                 let curtidas = parseInt(contadorSpan.textContent);
                 curtidas += 1;
                 contadorSpan.textContent = curtidas;
             });
+        });
+
+        // Lógica para Alternar Tema (Claro / Escuro)
+        const btnTema = document.getElementById("btn-alternar-tema");
+
+        btnTema.addEventListener("click", function() {
+            document.body.classList.toggle("tema-claro");
+            
+            if (document.body.classList.contains("tema-claro")) {
+                btnTema.textContent = "🌙 Modo Escuro";
+            } else {
+                btnTema.textContent = "☀️ Modo Claro";
+            }
         });
     </script>
 </body>
